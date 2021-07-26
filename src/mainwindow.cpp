@@ -132,11 +132,11 @@ void MainWindow::OpenFile() {
 
 void MainWindow::UpdateTexture() {
   glBindTexture(GL_TEXTURE_2D, id);
-	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, WIDTH, HEIGHT, GL_RGBA, GL_UNSIGNED_INT_8_8_8_8, core->bus.ppu.pixels);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+  glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, WIDTH, HEIGHT, GL_RGBA, GL_UNSIGNED_INT_8_8_8_8, core->bus.ppu.pixels);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
 }
 
 ImVec2 image_size;
@@ -177,7 +177,7 @@ void MainWindow::Run() {
     UpdateTexture();
 
     ImGui::SetNextWindowSizeConstraints(ImVec2(0, 0), ImVec2(FLT_MAX, FLT_MAX), resize_callback);
-    ImGui::Begin("Image", (bool*)__null, ImGuiWindowFlags_NoTitleBar);
+    ImGui::Begin("Image", nullptr, ImGuiWindowFlags_NoTitleBar);
     ImGui::Image(reinterpret_cast<void*>(static_cast<intptr_t>(id)), image_size);
     ImGui::End();
 
@@ -188,8 +188,8 @@ void MainWindow::Run() {
     int display_w, display_h;
     glfwGetFramebufferSize(window, &display_w, &display_h);
     glViewport(0, 0, display_w, display_h);
-		glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
-		glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+    glClear(GL_COLOR_BUFFER_BIT);
 
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     glfwSwapBuffers(window);
@@ -198,7 +198,7 @@ void MainWindow::Run() {
       WaitEmuThread();
     }
     
-    while ((SDL_GetTicks() - frameStartTicks) < (1000 / 60))
+    //while ((SDL_GetTicks() - frameStartTicks) < (1000 / 60))
       SDL_Delay(1);
   }
 }

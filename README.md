@@ -1,8 +1,8 @@
 # natsukashii
 ### _"Joyful nostalgia"_
 
-[![Build Status](https://travis-ci.com/CocoSimone/natsukashii.svg?branch=master)](https://travis-ci.com/CocoSimone/natsukashii)
-</br>
+[![CodeFactor](https://www.codefactor.io/repository/github/cocosimone/natsukashii/badge/master)](https://www.codefactor.io/repository/github/cocosimone/natsukashii/overview/master)
+
 Rewrite of my GameBoy emulator in C++17 with GLFW3 and ImGui</br>
 It's shipped with a copyright-free, open source bootrom written by Optix:</br>
 https://github.com/Hacktix/Bootix</br>
